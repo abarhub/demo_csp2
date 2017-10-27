@@ -48,6 +48,14 @@ public class EquationSimple3 extends Equation {
 		return resultat;
 	}
 
+	public BigInteger getBase() {
+		return base;
+	}
+
+	public Variable getReste() {
+		return reste;
+	}
+
 	@Override
 	public List<Variable> getVariables() {
 		List<Variable> liste = new ArrayList<>();

@@ -3,6 +3,7 @@ package org.demo_csp.demo_csp.service;
 import org.demo_csp.demo_csp.equation.BuilderEquation;
 import org.demo_csp.demo_csp.equation.Equation;
 import org.demo_csp.demo_csp.equation.Resolution;
+import org.demo_csp.demo_csp.equation.Resolution2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,16 +37,36 @@ public class TraitementService implements CommandLineRunner {
 	private void exec() throws Exception {
 		test1();
 		test2();
-		test3();
+		//test3();
+		test4();
+	}
+
+	private void test4() {
+		BuilderEquation builderEquation = new BuilderEquation();
+
+		long val;
+		val = 12345L;
+		//val=12345678910L;
+		//val = 12;
+		val = 123;
+
+		BigInteger max = BigInteger.valueOf(val);
+		List<Equation> res = builderEquation.buildEquationSimple(max);
+		LOGGER.info("res={}", res);
+
+		Resolution2 resolution = new Resolution2();
+		LOGGER.info("resolution ...");
+		resolution.resolution(res);
+		LOGGER.info("resolution ok");
 	}
 
 	private void test3() {
 		BuilderEquation builderEquation = new BuilderEquation();
 
 		long val;
-		val=12345L;
+		val = 12345L;
 		//val=12345678910L;
-		val=12;
+		val = 12;
 
 		BigInteger max = BigInteger.valueOf(val);
 		List<Equation> res = builderEquation.buildEquationSimple(max);
